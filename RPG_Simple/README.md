@@ -11,3 +11,4 @@ Building a simple RPG game is a great way to practice and demonstrate programmin
     7. Using the innerText.
     8. Changing of states and events based on actions taken.
     9. Paths and priorities.
+    10. Objects, key and value pairs and accessing objects both dot and bracket notations.
