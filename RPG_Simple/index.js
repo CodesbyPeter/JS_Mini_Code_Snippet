@@ -24,6 +24,26 @@ const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
+// Weaponry
+const weapons = [
+    {
+    name: "stick",
+    power: 5
+},
+{
+    name: "dagger",
+    power: 30
+},
+{
+    name: "claw hammer",
+    power: 50
+},
+{
+    name: "sword",
+    power: 100
+}
+];
+// Locations
 const locations = [
     {
     name: "town square",
@@ -36,6 +56,12 @@ const locations = [
     "button text": ["Buy 10 health (10 gold)", "Buy weapon (30 gold)", "Go to town square"],
     "button functions": [buyHealth, buyWeapon, goTown],
     text: "You enter the store."
+  },
+  {
+    name: "cave",
+    "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
+    "button functions": [fightSlime, fightBeast, goTown],
+    text: "You enter the cave. You see some monsters."
   }
 ];
 // Initializing buttons
@@ -62,7 +88,7 @@ function goStore() {
 }
 // Creating goCave function to handle all goToCave logic
 function goCave() {
-
+  update(locations[2]);
 }
 // Creating fightDragon function to handle all fightDragon logic
 function fightDragon() {
@@ -70,9 +96,24 @@ function fightDragon() {
 }
 // Creating buyHealth function to handle all healthBuying logic
 function buyHealth() {
-
+  if (gold >= 10) {
+    gold -= 10;
+    health += 10;
+    goldText.innerText = gold;
+    healthText.innerText = health;
+  } else {
+    text.innerText = "You do not have enough gold to buy health.";
+  }
 }
 // Creating buyWeapon function to handle all weaponBuying logic
 function buyWeapon() {
+  
+}
+// Creation of functions to be used in the cave object
+function fightSlime() {
+  
+}
+
+function fightBeast() {
   
 }
