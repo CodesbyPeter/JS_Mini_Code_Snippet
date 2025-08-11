@@ -43,6 +43,24 @@ const weapons = [
     power: 100
 }
 ];
+// Monsters
+const monsters = [
+  {
+    name: "slime",
+    level: 2,
+    health: 15
+  },
+  {
+    name: "fanged beast",
+    level: 8,
+    health: 60
+  },
+  {
+    name: "dragon",
+    level: 20,
+    health: 300
+  }
+];
 // Locations
 const locations = [
     {
@@ -90,10 +108,6 @@ function goStore() {
 function goCave() {
   update(locations[2]);
 }
-// Creating fightDragon function to handle all fightDragon logic
-function fightDragon() {
-
-}
 // Creating buyHealth function to handle all healthBuying logic
 function buyHealth() {
   if (gold >= 10) {
@@ -137,9 +151,18 @@ function sellWeapon() {
     text.innerText = "Don't sell your only weapon!";
   }
 }
+// Creating fightDragon function to handle all fightDragon logic
+function fightDragon() {
+ 
+}
+// Creating goFight function to handle all monsterFighting logic
+function goFight() {
+  
+}
 // Creation of functions to be used in the cave object
 function fightSlime() {
-  
+  fighting = 0;
+  goFight();
 }
 
 function fightBeast() {
