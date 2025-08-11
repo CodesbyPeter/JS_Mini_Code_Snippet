@@ -98,6 +98,12 @@ const locations = [
     "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
     "button functions": [restart, restart, restart],
     text: "You die. &#x2620;"
+  },
+  {
+    name: "win",
+    "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
+    "button functions": [restart, restart, restart],
+    text: "You defeat the dragon! YOU WIN THE GAME! &#x1F389;"
   }
 ];
 // Initializing buttons
@@ -113,7 +119,7 @@ function update(location) {
   button1.onclick = location["button functions"][0];
   button2.onclick = location["button functions"][1];
   button3.onclick = location["button functions"][2];
-  text.innerText = location.text;
+  text.innerHTML = location.text;
 }
 // Creating goTown function to handle all goingToTown logic
 function goTown() {
@@ -232,6 +238,11 @@ function defeatMonster() {
 // Creating lose function to handle oneLoosing logics
 function lose() {
   update(locations[5]);
+}
+
+// Creating winGame function to handle winning logics
+function winGame() {
+  update(locations[6]);
 }
 
 // Creating a restart function to handle allRestartingGameAgain logics
