@@ -163,23 +163,39 @@ function fightSlime() {
   goFight();
 }
 
-// Creating goFight function to handle all monsterFighting logic
-function goFight() {
-  fighting = 1;
-  goFight();
-}
 // Creation of functions to be used in the cave object
 function fightBeast() {
-  fighting = 2;
+  fighting = 1;
   goFight();
 }
 // Creating fightDragon function to handle all fightDragon logic
 function fightDragon() {
- 
+  fighting = 2;
+  goFight();
 }
+
+// Creating goFight function to handle all monsterFighting logic
+function goFight() {
+  update(locations[3]);
+  monsterHealth = monsters[fighting].health;
+  monsterStats.style.display = "block";
+  monsterName.innerText = monsters[fighting].name;
+  monsterHealthText.innerText = monsterHealth;
+}
+
 // Creating attack function to handle attacking logics
 function attack() {
-
+  text.innerText = "The " + monsters[fighting].name + " attacks.";
+  text.innerText += " You attack it with your " + weapons[currentWeaponIndex].name + ".";
+  health -= monsters[fighting].level;
+  monsterHealth -= weapons[currentWeaponIndex].power + Math.floor(Math.random() * xp) + 1;
+  healthText.innerText = health;
+  monsterHealthText.innerText = monsterHealth;
+  if (health <= 0) {
+    lose();
+  } else if (monsterHealth <= 0) {
+    defeatMonster();
+  }
 }
 // Creating dodge function to handle dodging logics
 function dodge() {
