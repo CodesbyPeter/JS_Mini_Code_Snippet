@@ -206,8 +206,12 @@ function goFight() {
 function attack() {
   text.innerText = "The " + monsters[fighting].name + " attacks.";
   text.innerText += " You attack it with your " + weapons[currentWeaponIndex].name + ".";
-  health -= monsters[fighting].level;
-  monsterHealth -= weapons[currentWeaponIndex].power + Math.floor(Math.random() * XP) + 1;
+  health -= getMonsterAttackValue(monsters[fighting].level);
+  if (isMonsterHit()) {
+    monsterHealth -= weapons[currentWeaponIndex].power + Math.floor(Math.random() * XP) + 1;
+  } else {
+    text.innerText += " You miss.";
+  }
   healthText.innerText = health;
   monsterHealthText.innerText = monsterHealth;
   if (health <= 0) {
@@ -220,10 +224,26 @@ function attack() {
       defeatMonster();
     }
   }
+  if (Math.random() <= .1) {
+    text.innerText += " Your " + inventory.pop() + " breaks.";
+  }
 }
+
+// Creation of getMonsterAttackValue function to act on logics based on Monsters level
+function getMonsterAttackValue(level) {
+  // Set the monster's attack to five times their level minus a random number between 0 and the player's XP
+  const hit = (level * 5) - (Math.floor(Math.random() * XP));
+  return hit > 0 ? hit : 0; // Ternary operator to output optimum solution based on choice
+}
+
 // Creating dodge function to handle dodging logics
 function dodge() {
   text.innerText = "You dodge the attack from the " + monsters[fighting].name;
+}
+
+// Creating a isMonsterHit function to handle allMonsterBeingHit logics
+function isMonsterHit() {
+  return Math.random() > .2 || health < 20;
 }
 
 // Creating defeatMonster function to handle monsterBeingDefeated logics
