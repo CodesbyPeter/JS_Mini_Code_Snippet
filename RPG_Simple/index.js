@@ -80,6 +80,12 @@ const locations = [
     "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
     "button functions": [fightSlime, fightBeast, goTown],
     text: "You enter the cave. You see some monsters."
+  },
+  {
+    name: "fight",
+    "button text": ["Attack", "Dodge", "Run"],
+    "button functions": [attack, dodge, goTown],
+    text: "You are fighting a monster."
   }
 ];
 // Initializing buttons
@@ -151,20 +157,31 @@ function sellWeapon() {
     text.innerText = "Don't sell your only weapon!";
   }
 }
-// Creating fightDragon function to handle all fightDragon logic
-function fightDragon() {
- 
-}
-// Creating goFight function to handle all monsterFighting logic
-function goFight() {
-  
-}
 // Creation of functions to be used in the cave object
 function fightSlime() {
   fighting = 0;
   goFight();
 }
 
+// Creating goFight function to handle all monsterFighting logic
+function goFight() {
+  fighting = 1;
+  goFight();
+}
+// Creation of functions to be used in the cave object
 function fightBeast() {
-  
+  fighting = 2;
+  goFight();
+}
+// Creating fightDragon function to handle all fightDragon logic
+function fightDragon() {
+ 
+}
+// Creating attack function to handle attacking logics
+function attack() {
+
+}
+// Creating dodge function to handle dodging logics
+function dodge() {
+
 }
