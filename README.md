@@ -11,3 +11,7 @@ A collection of small JavaScript projects for practice.
 2. **RPG Simple**  
    A mini text-based RPG game in the browser.  
    [Open Folder](RPG_Simple/README.md)
+
+3. **Calorie Counter**  
+   A simple counter that calculates ones calories based on their inputs.  
+   [Open Folder](Calorie_Counter/README.md)
