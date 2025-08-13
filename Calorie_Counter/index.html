@@ -10,8 +10,59 @@
     <main>
         <h1>Calorie Counter</h1>
         <div class="container">
-
+          <form id="calorie-counter">
+            <!-- DAILY CALORIE BUDGET -->
+            <label for="budget">Budget</label>
+            <input id="budget" type="number" min=0 placeholder="Daily calorie budget" required/>
+            <!-- BREAKFAST -->
+            <fieldset id="breakfast">
+              <legend>Breakfast</legend>
+              <div class="input-container"></div>
+            </fieldset>
+            <!-- LUNCH -->
+            <fieldset id="lunch">
+              <legend>Lunch</legend>
+              <div class="input-container"></div>
+            </fieldset>
+            <!-- DINNER -->
+            <fieldset id="ldinner">
+              <legend>Dinner</legend>
+              <div class="input-container"></div>
+            </fieldset>
+            <!-- SNACKS -->
+            <fieldset id="snacks">
+              <legend>Snacks</legend>
+              <div class="input-container"></div>
+            </fieldset>
+            <!-- EXERCISE -->
+            <fieldset id="exercise">
+              <legend>Exercise</legend>
+              <div class="input-container"></div>
+            </fieldset>
+            <!-- CONTROLS -->
+          <div class="controls">
+            <span>
+              <label for="entry-dropdown">Add food or exercise:</label>
+              <select id="entry-dropdown" name="options">
+                <option value="breakfast" selected>Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snacks">Snacks</option>
+                <option value="exercise">Exercise</option>
+              </select>
+              <button type="button" id="add-entry">Add Entry</button>
+            </span>
+          </div>
+          <!-- CLEAR -->
+           <div>
+             <button type="submit">Calculate Remaining Calories</button>
+             <button id="clear" type="button">Clear</button>
+           </div>
+           <!-- OUTPUT -->
+            <div id="output" class="output hide"></div>
+          </form>
         </div>
     </main>
+    <script src="/Calorie_Counter/index.js"></script>
 </body>
 </html>
